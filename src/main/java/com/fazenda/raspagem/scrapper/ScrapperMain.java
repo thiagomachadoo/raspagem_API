@@ -35,13 +35,15 @@ public class ScrapperMain {
         //Lista de objetos
         List<all> qbsObjetos = new ArrayList<>();
 
+
         for (Element qb: qbs) {
-            List<Element> atributos = qb.getElementsByTag("td");
-            all allitens = new all(atributos.get(0).text(),atributos.get(1).text(),atributos.get(2).text(),
-                    atributos.get(3).text());
+                List<Element> atributos = qb.getElementsByTag("td");
 
-            qbsObjetos.add(allitens);
+                all allitens = new all(atributos.get(0).text(),atributos.get(1).html(),atributos.get(2).html(),
+                        atributos.get(3).html(),atributos.get(4).html(),atributos.get(5).html(),atributos.get(6).html(),
+                        atributos.get(7).html(),atributos.get(8).html());
 
+                qbsObjetos.add(allitens);
         }
         for (all qb: qbsObjetos) {
             enviarQb(converterToJson(qb));
